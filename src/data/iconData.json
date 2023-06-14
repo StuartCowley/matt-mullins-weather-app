@@ -4,43 +4,44 @@
             "id": 200,
             "main": "Thunderstorm",
             "description": "Thunderstorm with light rain",
-            "icon": "../src/icons/lightning.png"
+            "icon": "/icons/lightning.png"
+           
         },
         {
             "id": 300,
             "main": "Drizzle",
             "description": "light drizzle",
-            "icon": "../src/icons/drizzle.png"
+            "icon": "/icons/drizzle.png"
         },
         {
             "id": 500,
             "main": "Rain",
             "description": "light rain",
-            "icon": "../src/icons/rainy-day.png"
+            "icon": "/icons/rainy-day.png"
         },
         {
             "id": 600,
             "main": "Snow",
             "description": "light snow",
-            "icon": "../src/icons/snow.png"
+            "icon": "/icons/snow.png"
         },
         {
             "id": 700,
             "main": "Mist",
             "description": "mist",
-            "icon": "../src/icons/mist.png"
+            "icon": "/icons/mist.png"
         },
         {
             "id": 800,
             "main": "Clear",
             "description": "clear",
-            "icon": "../src/icons/clear.png"
+            "icon": "/icons/clear.png"
         },
         {
             "id": 801,
             "main": "Clouds",
             "description": "few clouds",
-            "icon": "../src/icons/cloudy.png"
+            "icon": "/icons/cloudy.png"
         }
     ]
-    }
+ }

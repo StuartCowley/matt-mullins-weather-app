@@ -1,7 +1,7 @@
 import React from 'react'
 import "../styles/App.css";
 import LocationDetails from './LocationDetails';
-import ForecastSummaries from "./ForecastSummaries";
+import ForecastSummaries from "./ForecastSummeries";
 
 function App({ location, forecasts }) {
   return (

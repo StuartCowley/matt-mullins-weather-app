@@ -1,6 +1,7 @@
 import React from 'react';
 import ForecastSummary from './ForecastSummary';
-import '../styles/ForecastSummaries.css'
+import '../styles/ForecastSummeries.css'
+
 
 function ForecastSummaries({ forecasts }) {
 return (

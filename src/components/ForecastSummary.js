@@ -2,11 +2,13 @@ import React from "react";
 import weather from "../data/iconData.json"
 
 function ForecastSummary(props) {
-  const { date, description, icon, temperature } = props;
-
+    const { date, description, icon, temperature } = props;
     const weatherCode = `${icon.slice(0,1)}00`;
-
     const formattedDate = new Date(date).toDateString();
+
+    const filteredObject = weather.weather.filter((iconSet) => {
+        return iconSet.id === Number(weatherCode);
+    });
 
   return (
     <div className="forecast-summary" data-testid="forecast-summary">

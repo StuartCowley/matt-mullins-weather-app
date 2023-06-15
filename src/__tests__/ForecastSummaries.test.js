@@ -1,8 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import ForecastSummeries from "../components/ForecastSummeries";
+import ForecastSummeries from "../components/ForecastSummaries";
 
-describe("ForecastSummeries", () => {
+describe("ForecastSummaries", () => {
     const validProps = [
       {
         date: 1111111,

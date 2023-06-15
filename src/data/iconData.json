@@ -1,47 +1,9 @@
 {
-    "weather": [
-        {
-            "id": 200,
-            "main": "Thunderstorm",
-            "description": "Thunderstorm with light rain",
-            "icon": "/icons/lightning.png"
-           
-        },
-        {
-            "id": 300,
-            "main": "Drizzle",
-            "description": "light drizzle",
-            "icon": "/icons/drizzle.png"
-        },
-        {
-            "id": 500,
-            "main": "Rain",
-            "description": "light rain",
-            "icon": "/icons/rainy-day.png"
-        },
-        {
-            "id": 600,
-            "main": "Snow",
-            "description": "light snow",
-            "icon": "/icons/snow.png"
-        },
-        {
-            "id": 700,
-            "main": "Mist",
-            "description": "mist",
-            "icon": "/icons/mist.png"
-        },
-        {
-            "id": 800,
-            "main": "Clear",
-            "description": "clear",
-            "icon": "/icons/clear.png"
-        },
-        {
-            "id": 801,
-            "main": "Clouds",
-            "description": "few clouds",
-            "icon": "/icons/cloudy.png"
-        }
-    ]
- }
+"200": "../images/200.png",
+"300": "../images/300.png",
+"500": "../images/500.png",
+"600": "../images/600.png",
+"700": "../images/700.png",
+"800": "../images/800.png",
+"801": "../images/801.png"
+}

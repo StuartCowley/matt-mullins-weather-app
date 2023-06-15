@@ -1,8 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import ForecastSummeries from "../components/ForecastSummeries";
+import ForecastSummaries from "../components/ForecastSummaries";
 
-describe("ForecastSummeries", () => {
+describe("ForecastSummaries", () => {
     const validProps = [
       {
         date: 1111111,
@@ -26,13 +26,13 @@ describe("ForecastSummeries", () => {
 
     it("renders correctly", () => {
         const { asFragment } = render(
-        <ForecastSummeries forecasts={validProps} />);
+        <ForecastSummaries forecasts={validProps} />);
         expect(asFragment()).toMatchSnapshot();
       });
 
       it("renders the correct number of ForecastSummary instances", () => {
         const { getAllByTestId } = render(
-          <ForecastSummeries forecasts={validProps} />
+          <ForecastSummaries forecasts={validProps} />
         );
     
         expect(getAllByTestId("forecast-summary")).toHaveLength(2);

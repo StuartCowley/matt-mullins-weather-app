@@ -1,16 +1,15 @@
 import React from "react";
-import iconData from "../data/iconData.json"
+import iconData from "../data/iconData.json";
+
+
 
 function ForecastSummary(props) {
     const { 
-        date, description, icon, temperature 
+        date, description, icon, temperature, onSelect 
     } = props;
+
     const weatherCode = `${icon.slice(0,1)}00`;
     const formattedDate = new Date(date).toDateString();
-
-    // const filteredObject = weather.weather.filter((iconSet) => {
-    //     return iconSet.id === Number(weatherCode);
-    // });
 
   return (
     <div className="forecast-summary" data-testid="forecast-summary">
@@ -20,6 +19,7 @@ function ForecastSummary(props) {
 
       <div className="forecast-summary__icon" data-testid="forecast-icon">
         <img src={(iconData[weatherCode])} alt="" />
+        {/* <WeatherIcon name="owm" iconId={icon} /> */}
       </div>
 
       <div className="forecast-summary_temperature">
@@ -28,9 +28,13 @@ function ForecastSummary(props) {
       </div>
 
       <div className="forecast-summary__description">{description}</div>
+      <button type="button" onClick={() => onSelect(date)}>
+        More details</button>
     </div>
+    
   );
 }
 
-console.log(ForecastSummary);
+
+// console.log(ForecastSummary);
 export default ForecastSummary;

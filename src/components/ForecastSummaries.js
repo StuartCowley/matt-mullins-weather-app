@@ -3,7 +3,7 @@ import ForecastSummary from './ForecastSummary';
 import '../styles/ForecastSummaries.css'
 
 
-function ForecastSummaries({ forecasts }) {
+function ForecastSummaries({ forecasts, onForecastSelect }) {
     console.log(forecasts);
 return (
     <div className="forecast-summaries">
@@ -13,12 +13,13 @@ return (
             key={forecast.date}
             date={forecast.date}
             description={forecast.description}
-            icon={forecast.icon}
+            icon={forecast.icon.toString()}
+            onSelect={onForecastSelect}
             temperature={forecast.temperature.max}
             />
         ))}
         </div>
-)
+   );
 };
 
 

@@ -1,15 +1,13 @@
 import React from "react";
 
 
-function SearchForm(props) {
-  const { searchText, setSearchText, onSubmit } = props;
-
+function SearchForm({ searchText, setSearchText, onSubmit }) {
   const handleInputChange = (event) => setSearchText(event.target.value);
 
   return (
     <div className="search-form">
-      <input className="search-form_input" type="text" onChange={handleInputChange} />
-      <button className="search-form_button" type="submit" onClick={onSubmit} value={searchText}>Search</button>
+      <input className="search-form_input" type="text" onChange={handleInputChange} value={searchText}/>
+      <button className="search-form_button" type="submit" onClick={onSubmit}>Search</button>
     </div>
   );
 }

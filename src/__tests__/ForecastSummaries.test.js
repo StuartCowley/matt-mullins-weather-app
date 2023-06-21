@@ -1,13 +1,14 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import ForecastSummeries from "../components/ForecastSummaries";
+import { render, screen } from "@testing-library/react";
+import ForecastSummaries from "../components/ForecastSummaries";
 
 describe("ForecastSummaries", () => {
-    const validProps = [
+  const validProps = {
+    forecasts: [
       {
         date: 1111111,
         description: "Stub description 1",
-        icon: "stubIcon1",
+        icon: 500,
         temperature: {
           max: 22,
           min: 12,
@@ -16,26 +17,32 @@ describe("ForecastSummaries", () => {
       {
         date: 2222222,
         description: "Stub description2",
-        icon: "stubIcon2",
+        icon: 800,
         temperature: {
           max: 24,
           min: 13,
         },
       },
-    ];
+    ],
+    onForecastSelect: () => {},
+  };
 
-    it("renders correctly", () => {
-        const { asFragment } = render(
-        <ForecastSummeries forecasts={validProps} />);
-        expect(asFragment()).toMatchSnapshot();
-      });
-
-      it("renders the correct number of ForecastSummary instances", () => {
-        const { getAllByTestId } = render(
-          <ForecastSummeries forecasts={validProps} />
-        );
-    
-        expect(getAllByTestId("forecast-summary")).toHaveLength(2);
-      });
-
+  it("renders correctly", () => {
+    const { asFragment } = render(
+      <ForecastSummaries
+        forecasts={validProps.forecasts}
+        onForecastSelect={validProps.onForecastSelect}
+      />,
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
+
+  it("renders the correct number of ForecastSummary instances", () => {
+    render(<ForecastSummaries
+      forecasts={validProps.forecasts}
+      onForecastSelect={validProps.onForecastSelect}
+    />);
+    const icons = screen.getAllByRole("button");
+    expect(icons).toHaveLength(2);
+  });
+});

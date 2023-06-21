@@ -1,5 +1,6 @@
 import React from "react";
 import iconData from "../data/iconData.json";
+import "../styles/ForecastSummary.css";
 
 
 
@@ -18,8 +19,7 @@ function ForecastSummary(props) {
       </div>
 
       <div className="forecast-summary__icon" data-testid="forecast-icon">
-        <img src={(iconData[weatherCode])} alt="" />
-        {/* <WeatherIcon name="owm" iconId={icon} /> */}
+        <img src={iconData[weatherCode]} alt={`icon of ${description}`} />
       </div>
 
       <div className="forecast-summary_temperature">
@@ -35,6 +35,4 @@ function ForecastSummary(props) {
   );
 }
 
-
-// console.log(ForecastSummary);
 export default ForecastSummary;

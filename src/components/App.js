@@ -1,3 +1,4 @@
+//Dependencies
 import React, { useState, useEffect } from 'react';
 import "../styles/App.css";
 import LocationDetails from './LocationDetails';
@@ -6,8 +7,11 @@ import ForecastDetails from './ForecastDetails';
 import getForecast from "../requests/getForecast";
 import SearchForm from './SearchForm';
 
-
+//Top level App Component
 function App () {
+  //useState Hook declared using array destructuring.
+  //First variable represents the current value of the State
+  //Second variable is the function to update that state
   const [forecasts, setForecasts] = useState([]);
   const [location, setLocation] = useState({ city: "", country: "" });
   const [selectedDate, setSelectedDate] = useState(0);
@@ -17,7 +21,7 @@ function App () {
   const selectedForecast = forecasts.find((forecast) => forecast.date === selectedDate);
 
   const handleCitySearch = () => {
-    getForecast(setSearchText,setSelectedDate, setForecasts, setLocation, setErrorMessage);
+    getForecast(searchText,setSelectedDate, setForecasts, setLocation, setErrorMessage);
   };
 
   const handleForecastSelect = (date) => {
@@ -25,7 +29,7 @@ function App () {
   };
 
   useEffect(() => {
-    getForecast(setSearchText,setSelectedDate, setForecasts, setLocation, setErrorMessage);
+    getForecast("",setSelectedDate, setForecasts, setLocation, setErrorMessage);
   }, []);
 
   return (

@@ -1,41 +1,44 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import ForecastSummaries from "../../components/ForecastSummaries";
+import ForecastSummary from "../components/ForecastSummary";
 
-describe("ForecastSummaries", () => {
-    const validProps = [
-      {
-        date: 1111111,
-        description: "Stub description 1",
-        icon: "stubIcon1",
-        temperature: {
-          max: 22,
-          min: 12,
-        },
-      },
-      {
-        date: 2222222,
-        description: "Stub description2",
-        icon: "stubIcon2",
-        temperature: {
-          max: 24,
-          min: 13,
-        },
-      },
-    ];
+describe("ForecastSummary", () => {
+  const validProps = {
+    date: 1525046400000,
+    description: "Stub description",
+    icon: "stubIcon",
+    temperature: {
+      min: 12,
+      max: 22,
+    },
+    onSelect: () => {},
+  };
 
-    it("renders correctly", () => {
-        const { asFragment } = render(
-        <ForecastSummaries forecasts={validProps} />);
-        expect(asFragment()).toMatchSnapshot();
-      });
-
-      it("renders the correct number of ForecastSummary instances", () => {
-        const { getAllByTestId } = render(
-          <ForecastSummaries forecasts={validProps} />
-        );
-    
-        expect(getAllByTestId("forecast-summary")).toHaveLength(2);
-      });
-
+  it("renders correctly", () => {
+    const { asFragment } = render(
+      <ForecastSummary
+        date={validProps.date}
+        description={validProps.description}
+        icon={validProps.icon}
+        temperature={validProps.temperature.max}
+        onSelect={validProps.onSelect}
+      />,
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
+  it("renders correct values for props", () => {
+    const { getByText, getByTestId } = render(
+      <ForecastSummary
+        date="Mon Apr 30 2018"
+        description={validProps.description}
+        icon={validProps.icon}
+        temperature={validProps.temperature.max}
+      />,
+    );
+    expect(getByTestId("forecast-summary")).toHaveClass("forecast-summary");
+    expect(getByText("Mon Apr 30 2018")).toHaveClass("forecast-summary_date");
+    expect(getByText("Stub description")).toHaveClass("forecast-summary_description");
+    expect(getByTestId("forecast-icon")).toHaveClass("forecast-summary_icon");
+    expect(getByText("22°C")).toHaveClass("forecast-summary_temperature");
+  });
+});
